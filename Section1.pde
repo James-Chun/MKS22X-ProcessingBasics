@@ -51,7 +51,7 @@ class Visualizer {
        else{
          fill(255,0,0);         
        }
-       rect(x+(40*i),y+100,40,values[i]);
+       rect(x+((400/values.length)*i) , y+100 , 400/values.length , values[i]);
     }
 
 
@@ -62,12 +62,12 @@ class Visualizer {
   void update() {
     //???WRITE THIS METHOD!!!
     for (int i = 0; i < values.length; i++) {
+      if (values[i]>=MAX_VALUE || values[i]<=MIN_VALUE) {
+        speeds[i]=speeds[i]*-1;
+      }
       values[i] += speeds[i];
       //??? keep them values between max/min value
-
       //??? reverse the speeds so they oscillate up/down when they reach max/min
-
-
     }
   }
 }
